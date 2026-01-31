@@ -1,0 +1,27 @@
+{
+	"name": "pokedex",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"build": "npx tsc",
+		"start": "node dist/main.js",
+		"dev": "npx tsc && node dist/main.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MrBhop/Pokedex-TS.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/MrBhop/Pokedex-TS/issues"
+	},
+	"homepage": "https://github.com/MrBhop/Pokedex-TS#readme",
+	"description": "",
+	"devDependencies": {
+		"@types/node": "^25.1.0",
+		"typescript": "^5.9.3"
+	}
+}
