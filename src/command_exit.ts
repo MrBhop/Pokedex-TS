@@ -1,7 +1,11 @@
-import type { State } from "./state.js";
+import type { CLICommand, State } from "./state.js";
 
-export async function commandExit(state: State) {
-	console.log("Closing the Pokedex... Goodbye!");
-	state.readline.close();
-	process.exit(0);
+export const exitCommand: CLICommand = {
+	name: "exit",
+	description: "Exits the Pokedex.",
+	callback: async function exitCallback(state: State) {
+		console.log("Closing the Pokedex... Goodbye!");
+		state.readline.close();
+		process.exit(0);
+	},
 }
