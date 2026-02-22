@@ -3,6 +3,7 @@ import { commandExit } from "./command_exit.js";
 import { commandHelp } from "./command_help.js";
 import { PokeAPI } from "./pokeapi.js";
 import { commandMap, commandMapb } from "./command_map.js";
+import { Cache } from "./pokecache.js";
 
 export type CLICommand = {
 	name: string;
@@ -19,7 +20,7 @@ export type State = {
 	nextLocationsURL: string | null;
 };
 
-export function initState(): State {
+export function initState(interval: number): State {
 	return {
 		readline: createInterface({
 			input: process.stdin,
@@ -48,7 +49,7 @@ export function initState(): State {
 				callback: commandMapb,
 			},
 		},
-		pokeApi: new PokeAPI(),
+		pokeApi: new PokeAPI(new Cache(interval)),
 		nextLocationsURL: null,
 		prevLocationsURL: null,
 	}
