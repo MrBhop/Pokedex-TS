@@ -5,7 +5,8 @@ import { PokeAPI, Pokemon } from "./pokeapi.js";
 import { mapCommand, mapbCommand } from "./command_map.js";
 import { Cache } from "./pokecache.js";
 import { exploreCommand } from "./command_explore.js";
-import { catchCommand } from "./commandCatch.js";
+import { catchCommand } from "./command_catch.js";
+import { inspectCommand } from "./command_inspect.js";
 
 export type CLICommand = {
 	name: string;
@@ -37,6 +38,7 @@ export function initState(interval: number): State {
 			mapb: mapbCommand,
 			explore: exploreCommand,
 			catch: catchCommand,
+			inspect: inspectCommand,
 		},
 		pokeApi: new PokeAPI(new Cache(interval)),
 		pokeDex: {},

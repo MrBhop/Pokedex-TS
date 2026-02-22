@@ -1,8 +1,8 @@
 import type { CLICommand, State } from "./state.js";
 
 export const catchCommand: CLICommand = {
-	name: "",
-	description: "",
+	name: "catch",
+	description: "Attempt to catch a pokemon",
 	callback: async function(state: State, ...args: string[]) {
 		if (args.length !== 1) {
 			throw new Error(`Usage: ${this.name} <pokemon>`);
