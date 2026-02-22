@@ -11,12 +11,13 @@ export const catchCommand: CLICommand = {
 		const [pokemonName, ] = args;
 		const pokemon = await state.pokeApi.fetchPokemon(pokemonName);
 		const success = catchWasSuccessful(pokemon.base_experience);
-		if (success) {
-			state.pokeDex[pokemonName] = pokemon;
-		}
 
 		console.log(`Throwing Pokeball at ${pokemonName}...`);
 		console.log(`${pokemonName} ${success ? "was caught" : "escaped"}!`);
+		if (success) {
+			state.pokeDex[pokemonName] = pokemon;
+			console.log("You may now inspect it with the inspect command");
+		}
 	},
 };
 

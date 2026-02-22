@@ -6,6 +6,7 @@ export const exitCommand: CLICommand = {
 	callback: async function exitCallback(state: State) {
 		console.log("Closing the Pokedex... Goodbye!");
 		state.readline.close();
+		state.pokeApi.closeCache();
 		process.exit(0);
 	},
 }
