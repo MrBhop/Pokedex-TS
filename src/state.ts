@@ -4,11 +4,12 @@ import { commandHelp } from "./command_help.js";
 import { PokeAPI } from "./pokeapi.js";
 import { commandMap, commandMapb } from "./command_map.js";
 import { Cache } from "./pokecache.js";
+import { commandExplore } from "./command_explore.js";
 
 export type CLICommand = {
 	name: string;
 	description: string;
-	callback: (state: State) => Promise<void>;
+	callback: (state: State, ...args: string[]) => Promise<void>;
 };
 
 
@@ -40,14 +41,19 @@ export function initState(interval: number): State {
 			},
 			map: {
 				name: "map",
-				description: "List next page of locations",
+				description: "List next page of locations.",
 				callback: commandMap,
 			},
 			mapb: {
 				name: "mapb",
-				description: "List previous page of locations",
+				description: "List previous page of locations.",
 				callback: commandMapb,
 			},
+			explore: {
+				name: "explore",
+				description: "List Pokemon encounters for an area.",
+				callback: commandExplore,
+			}
 		},
 		pokeApi: new PokeAPI(new Cache(interval)),
 		nextLocationsURL: null,
